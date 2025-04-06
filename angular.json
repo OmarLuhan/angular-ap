@@ -5,9 +5,7 @@
   "projects": {
     "angular-app": {
       "projectType": "application",
-      "schematics": {
-        "changeDetection": "OnPush"
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
