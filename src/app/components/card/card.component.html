@@ -1,18 +1,15 @@
-<div class="bg-white shadow-md rounded-lg overflow-hidden">
-  <div class="p-4 content-center">
+<div class="bg-white shadow-md rounded-2xl overflow-hidden">
+  <div class="p-4 flex justify-left">
     <lucide-icon [img]="shieldUser" class="my-icon"></lucide-icon>
   </div>
   <div class="p-4">
+    @for(field of fields(); track field.key) {
     <p class="m-1">
-      <b>{{ field()?.fullName }} </b>{{ user()?.fullName }}
+      <b>{{ field.label }}: </b>{{ data()?.[field.key] }}
     </p>
-    <p class="m-1">
-      <b>{{ field()?.email }}: </b>{{ user()?.email }}
-    </p>
-    <p class="m-1">
-      <b>{{ field()?.role }} </b>{{ user()?.role }}
-    </p>
+    }
   </div>
+  @if(isAdmin()){
   <div class="bg-transparent p-4 flex justify-between">
     <a
       class="btn btn-sm btn-outline-primary flex items-center justify-center w-10 h-10"
@@ -27,4 +24,5 @@
       <lucide-icon [img]="fileX"></lucide-icon>
     </button>
   </div>
+  }
 </div>
