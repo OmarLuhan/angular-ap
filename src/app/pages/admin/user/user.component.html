@@ -1,6 +1,7 @@
-<h1>Users</h1>
-<ul>
+<section
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-2"
+>
   @for(user of users;track user.id){
-  <app-card [user]="user"></app-card>
+  <app-card [field]="field" [user]="user"></app-card>
   }
-</ul>
+</section>

@@ -1,11 +1,22 @@
 import { Component, input } from '@angular/core';
 import { User } from '@app/models/user';
-
+import {
+  LucideAngularModule,
+  ShieldUser,
+  PenTool,
+  FileX,
+} from 'lucide-angular';
 @Component({
   selector: 'app-card',
-  imports: [],
+  imports: [LucideAngularModule],
   templateUrl: './card.component.html',
 })
 export class CardComponent {
-  user = input<User>();
+  public user = input<User>();
+  public field = input<User>();
+  public isEditMode = false;
+  public isDeleteMode = false;
+  readonly shieldUser = ShieldUser;
+  readonly penTool = PenTool;
+  readonly fileX = FileX;
 }
