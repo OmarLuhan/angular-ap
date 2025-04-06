@@ -1,0 +1,74 @@
+<nav class="bg-gray-100 border-b border-gray-300">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <a class="text-lg font-semibold mr-6" href="#">Ecommerce</a>
+      <!-- Agregué mr-6 para separación -->
+      <button
+        type="button"
+        class="block md:hidden text-gray-700"
+        onclick="ToggleNavMenu"
+      >
+        <span class="material-icons">menu</span>
+      </button>
+
+      <div class="hidden md:flex flex-grow justify-between items-center">
+        <ul class="flex space-x-6">
+          <!-- Aumenté space-x-6 para más separación entre opciones -->
+          <li>
+            <a class="text-gray-700 hover:text-gray-900" routerLink="/dashboard"
+              >Dashboard</a
+            >
+          </li>
+          <li>
+            <a class="text-gray-700 hover:text-gray-900" routerLink="/users"
+              >Users</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-gray-700 hover:text-gray-900"
+              routerLink="/categories"
+              >Categories</a
+            >
+          </li>
+          <li>
+            <a class="text-gray-700 hover:text-gray-900" routerLink="/products"
+              >Products</a
+            >
+          </li>
+          <li>
+            <a class="text-gray-700 hover:text-gray-900" routerLink="/catalog"
+              >Store</a
+            >
+          </li>
+        </ul>
+        <div class="flex items-center space-x-4">
+          <span class="text-gray-700">admins&#64;example.com</span>
+
+          <a
+            class="flex items-center border border-gray-700 text-gray-700 px-3 py-1 rounded hover:bg-gray-700 hover:text-white"
+            routerLink="/cart"
+          >
+            <i class="bi-cart-fill mr-1"></i>
+            Cart
+            <span class="ml-1 bg-gray-700 text-white px-2 py-0.5 rounded-full"
+              >0</span
+            >
+          </a>
+
+          <button
+            class="border border-gray-700 text-gray-700 px-3 py-1 rounded hover:bg-gray-700 hover:text-white"
+          >
+            Exit
+          </button>
+
+          <a
+            class="border border-gray-700 text-gray-700 px-3 py-1 rounded hover:bg-gray-700 hover:text-white"
+            href="/login"
+            >Login</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

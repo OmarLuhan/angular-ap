@@ -1,0 +1,6 @@
+<h1>Users</h1>
+<ul>
+  @for(user of users;track user.id){
+  <app-card [user]="user"></app-card>
+  }
+</ul>
