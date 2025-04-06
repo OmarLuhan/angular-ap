@@ -4,7 +4,6 @@ import { User } from '@models/user';
 import { CardComponent } from '@components/card/card.component';
 import { SearchBarComponent } from '@components/search-bar/search-bar.component';
 import { FieldConfig } from '@app/models/fieldConfig';
-import { S } from 'node_modules/@angular/core/weak_ref.d-Bp6cSy-X';
 @Component({
   selector: 'app-user',
   imports: [CardComponent, SearchBarComponent],
@@ -12,9 +11,9 @@ import { S } from 'node_modules/@angular/core/weak_ref.d-Bp6cSy-X';
 })
 export class UserComponent {
   constructor(private _userService: UserService) {}
+  searchValue: string = '';
 
   public users: User[] = [];
-  public search: string = '';
   public role: string = 'admin';
   public isAdmin: boolean = true;
   public userFields: FieldConfig[] = [
@@ -22,9 +21,19 @@ export class UserComponent {
     { label: 'Email', key: 'email' },
     { label: 'Role', key: 'role' },
   ];
+  setSearchValue(e: string) {
+    this.searchValue = e;
+    this.getUsers();
+  }
+
+  getUsers() {
+    this._userService
+      .getUsers(this.role, this.searchValue)
+      .subscribe((response) => {
+        this.users = response.data;
+      });
+  }
   ngOnInit(): void {
-    this._userService.getUsers(this.role, this.search).subscribe((response) => {
-      this.users = response.data;
-    });
+    this.getUsers();
   }
 }

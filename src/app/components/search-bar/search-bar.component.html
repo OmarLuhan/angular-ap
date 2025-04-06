@@ -1,23 +1,27 @@
-<div class="flex justify-center mt-3">
+<div class="flex justify-center mt-3 text-primary">
   <div class="w-full max-w-xs md:max-w-sm xl:max-w-xs mb-4">
     <div class="grid gap-1 w-full mx-auto">
-      <a class="btn btn-primary" href="/user">New user</a>
+      <a class="btn btn-primary hover:text-accent" href="/user">New user</a>
     </div>
   </div>
   <div class="w-full md:max-w-md xl:max-w-lg mb-4">
     <div
-      class="flex items-center border border-gray-300 rounded-lg overflow-hidden"
+      class="flex items-center border border-primary rounded-lg overflow-hidden"
     >
       <input
+        [(ngModel)]="searchText"
         type="text"
-        class="flex-grow px-3 py-2 outline-none"
+        class="focus:text-accent hover:text-accent flex-grow px-3 py-2 outline-none"
         placeholder="Search User..."
+        (ngModelChange)="onInputChange($event)"
       />
       <button
         class="btn btn-sm btn-outline-danger flex items-center justify-center w-8 h-8"
         type="button"
+        (click)="handleSearch()"
+        [disabled]="!searchText"
       >
-        <lucide-icon [img]="search"></lucide-icon>
+        <lucide-icon [img]="searchIcon"></lucide-icon>
       </button>
     </div>
   </div>
