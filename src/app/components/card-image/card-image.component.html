@@ -1,0 +1,23 @@
+<div class="bg-primary shadow-lg rounded-lg overflow-hidden relative">
+  <!-- Badge de 'Nuevo' -->
+  <div
+    class="absolute bg-accent text-white text-xs font-bold px-2 py-1 top-2 right-2 rounded"
+  >
+    new
+  </div>
+  <img
+    class="w-full h-72 object-cover border border-gray-950"
+    [src]="data()?.image"
+    alt="Product Image"
+  />
+
+  <!-- Detalles del producto -->
+  <div class="p-4 text-center">
+    <h5 class="font-bold text-lg">{{ data()?.name }}</h5>
+
+    <p class="text-red-500 line-through">S/. {{ data()?.price }}</p>
+
+    <p class="text-green-600 font-bold">S/. {{ data()?.offerPrice }}</p>
+  </div>
+  @if(isAdmin()){<app-actions></app-actions>}
+</div>

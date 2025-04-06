@@ -5,7 +5,11 @@
 <section
   class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4 w-4/5 sm:w-[90%] md:w-[90%] xl:w-[90%] mx-auto"
 >
-  @for(user of users;track user.id){
-  <app-card [isAdmin]="isAdmin" [data]="user" [fields]="userFields"></app-card>
+  @for(user of categories;track user.id){
+  <app-card
+    [isAdmin]="isAdmin"
+    [data]="user"
+    [fields]="categoryFields"
+  ></app-card>
   }
 </section>

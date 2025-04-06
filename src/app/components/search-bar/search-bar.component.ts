@@ -1,4 +1,4 @@
-import { Component, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { LucideAngularModule, Search } from 'lucide-angular';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -11,6 +11,7 @@ import { Subject, Subscription } from 'rxjs';
 export class SearchBarComponent {
   readonly searchIcon = Search;
   searchText: string = '';
+  placeholder = input<string>('');
   searchEvent = output<string>();
 
   private searchSubject = new Subject<string>();

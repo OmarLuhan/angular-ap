@@ -12,7 +12,7 @@
         [(ngModel)]="searchText"
         type="text"
         class="focus:text-accent hover:text-accent flex-grow px-3 py-2 outline-none"
-        placeholder="Search User..."
+        placeholder="{{ placeholder() }}"
         (ngModelChange)="onInputChange($event)"
       />
       <button

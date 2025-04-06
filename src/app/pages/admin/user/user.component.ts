@@ -11,24 +11,25 @@ import { FieldConfig } from '@app/models/fieldConfig';
 })
 export class UserComponent {
   constructor(private _userService: UserService) {}
+  // Search bar
   searchValue: string = '';
-
+  placeholder: string = 'Search by name or email';
+  //user card
   public users: User[] = [];
-  public role: string = 'admin';
+  private _role: string = 'admin';
   public isAdmin: boolean = true;
   public userFields: FieldConfig[] = [
     { label: 'Name', key: 'fullName' },
     { label: 'Email', key: 'email' },
     { label: 'Role', key: 'role' },
   ];
-  setSearchValue(e: string) {
+  public setSearchValue(e: string) {
     this.searchValue = e;
     this.getUsers();
   }
-
-  getUsers() {
+  private getUsers() {
     this._userService
-      .getUsers(this.role, this.searchValue)
+      .getUsers(this._role, this.searchValue)
       .subscribe((response) => {
         this.users = response.data;
       });

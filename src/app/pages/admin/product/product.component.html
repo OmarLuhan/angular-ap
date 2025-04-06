@@ -1,1 +1,11 @@
-<p>product works!</p>
+<app-search-bar
+  (searchEvent)="setSearchValue($event)"
+  [placeholder]="placeholder"
+></app-search-bar>
+<section
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4 w-4/5 sm:w-[90%] md:w-[90%] xl:w-[90%] mx-auto"
+>
+  @for(product of products;track product.id){
+  <app-card-image [isAdmin]="isAdmin" [data]="product"></app-card-image>
+  }
+</section>
